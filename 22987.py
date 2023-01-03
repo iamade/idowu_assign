@@ -90,3 +90,41 @@ nums3 = [-1, 2]
 nums4 = [0, 2]
 
 print('Question3', Exercise3(nums1,nums2, nums3, nums4))
+
+#Question 4
+def Exercise4(height):
+    n = len(height)
+    maxarea = 0
+    left = 0
+    right = n - 1
+    while left < right:
+        maxarea = max(maxarea, min(height[left], height[right]) * (right - left))
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+    return maxarea
+
+height = [1,8,6,2,5,4,3,8,3,7]
+print(Exercise4(height))
+
+# Question 5
+def Exercise5(nums):
+    if not nums:
+        return 0
+    nums.sort()
+    longest_seq = 1
+    current_seq = 1
+    for i in range(1, len(nums)):
+        if nums[i] == nums[i-1] + 1:
+            current_seq += 1
+        elif nums[i] == nums[i - 1]:
+            continue
+        else:
+            longest_seq =  max(longest_seq, current_seq)
+            current_seq = 1
+    return max(longest_seq, current_seq)
+
+
+nums = [0,3,7,2,5,8,4,6,0,1]
+print(Exercise5(nums))
