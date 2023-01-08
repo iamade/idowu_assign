@@ -106,7 +106,8 @@ def Exercise4(height):
     return maxarea
 
 height = [1,8,6,2,5,4,3,8,3,7]
-print(Exercise4(height))
+
+print('Question 4',Exercise4(height))
 
 # Question 5
 def Exercise5(nums):
@@ -127,4 +128,14 @@ def Exercise5(nums):
 
 
 nums = [0,3,7,2,5,8,4,6,0,1]
-print(Exercise5(nums))
+print('Question 5', Exercise5(nums))
+
+# Question 6
+def Exercise6(nums):
+    nums.sort()
+    for ele in range(1, len(nums)):
+        if nums[ele] == nums[ele - 1]:
+            return nums[ele]
+
+print('Question 6', Exercise6([1,3,4,2,2]))
+print('Question 6', Exercise6([3,1,3,4,2]))
