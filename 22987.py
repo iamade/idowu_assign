@@ -89,7 +89,7 @@ nums2 = [-2,-1]
 nums3 = [-1, 2]
 nums4 = [0, 2]
 
-print('Question3', Exercise3(nums1,nums2, nums3, nums4))
+print('Question 3:', Exercise3(nums1,nums2, nums3, nums4))
 
 #Question 4
 def Exercise4(height):
@@ -107,7 +107,7 @@ def Exercise4(height):
 
 height = [1,8,6,2,5,4,3,8,3,7]
 
-print('Question 4',Exercise4(height))
+print('Question 4:', Exercise4(height))
 
 # Question 5
 def Exercise5(nums):
@@ -128,7 +128,7 @@ def Exercise5(nums):
 
 
 nums = [0,3,7,2,5,8,4,6,0,1]
-print('Question 5', Exercise5(nums))
+print('Question 5:', Exercise5(nums))
 
 # Question 6
 def Exercise6(nums):
@@ -137,11 +137,11 @@ def Exercise6(nums):
         if nums[ele] == nums[ele - 1]:
             return nums[ele]
 
-print('Question 6', Exercise6([1,3,4,2,2]))
-print('Question 6', Exercise6([3,1,3,4,2]))
+print('Question 6:', Exercise6([1,3,4,2,2]))
+print('Question 6:', Exercise6([3,1,3,4,2]))
 
 
-# Question 6
+# Question 7
 def Exercise7(s: str, k: int) -> int:
     max_len = 0
     left = 0
@@ -163,4 +163,24 @@ def Exercise7(s: str, k: int) -> int:
 s = "eceba"
 k = 2
 
-print("Question 7",Exercise7(s, k))
+print("Question 7:", Exercise7(s, k))
+
+# Question 8
+from collections import deque
+
+def Exercise8(nums, k):
+    q = deque()
+    result = []
+    for i, num in enumerate(nums):
+        while q and nums[q[-1]] < num:
+            q.pop()
+        q.append(i)
+        if q[0] <= i - k:
+            q.popleft()
+        if i >= k - 1:
+            result.append(nums[q[0]])
+    return result
+
+nums = [1,3,-1,-3,5,3,6,7]
+k = 3 
+print('Question 8:', Exercise8(nums, k))
