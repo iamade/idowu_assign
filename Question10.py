@@ -20,3 +20,10 @@ class Cache:
             self.lru.pop(0)
         self.cache[key] = value
         self.lru.append(key)
+
+C = Cache(2)
+C.put(1, 1)
+C.put(2, 2)
+
+print('Question 10: ', C.get(1))
+print('Question 10: ',C.get(2))
